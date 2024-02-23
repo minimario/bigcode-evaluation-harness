@@ -2,7 +2,7 @@ import inspect
 from pprint import pprint
 
 from . import (apps, codexglue_code_to_text, codexglue_text_to_text, conala,
-               concode, ds1000, gsm, humaneval, humanevalplus, humanevalpack,
+               concode, cruxeval, ds1000, gsm, humaneval, humanevalplus, humanevalpack,
                instruct_humaneval, instruct_wizard_humaneval, mbpp, mbppplus,
                multiple, parity, python_bugs, quixbugs, recode, santacoder_fim)
 
@@ -14,6 +14,7 @@ TASK_REGISTRY = {
     "codexglue_code_to_text-python-left": codexglue_code_to_text.LeftCodeToText,
     "conala": conala.Conala,
     "concode": concode.Concode,
+    **cruxeval.create_all_tasks(),
     **ds1000.create_all_tasks(),
     **humaneval.create_all_tasks(),
     **humanevalplus.create_all_tasks(),
